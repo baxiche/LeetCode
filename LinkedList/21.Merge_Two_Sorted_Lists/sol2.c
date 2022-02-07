@@ -8,7 +8,9 @@
 
 
 struct ListNode* mergeTwoLists(struct ListNode* l1, struct ListNode* l2){
-    struct ListNode *head = NULL, **cur = &head, **node = NULL;
+    struct ListNode *head = NULL;
+    struct ListNode **cur = &head;
+    struct ListNode **node = NULL;
     
     while (l1 && l2){
         node = (l1->val < l2->val)? &l1 : &l2;
@@ -16,7 +18,8 @@ struct ListNode* mergeTwoLists(struct ListNode* l1, struct ListNode* l2){
         *node = (*node)->next;
         cur = &((*cur)->next);
     }
+    if (l1) *cur = l1;
+    if (l2) *cur = l2;
     
-    *cur = (l1)? l1 : l2;
     return head;
 }
