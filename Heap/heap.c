@@ -35,7 +35,7 @@ void heap_push(heap *h, int val){
     while (i > 1){
         if (h->data[i / 2] > val){
             h->data[i] = h->data[i / 2];
-            i /= 1;
+            i /= 2;
         }
         else break;
     }
