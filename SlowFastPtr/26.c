@@ -22,13 +22,6 @@ int removeDuplicates(int* nums, int len){
     }
 }
 
-void test(char str[]){
-    int len = strlen(str);
-    for (int sl = 0, fa = 1; fa < len; ++fa){
-        if ()
-    }
-}
-
 int main(){
     char ss[10] = "aabb";
     

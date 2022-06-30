@@ -38,6 +38,18 @@ public:
         sum += words[(int)words.size() - 1].size() + 1;
         return sum;
     }
+
+    #define all(x) x.begin(), x.end()
+    int minimumLengthEncoding1(vector<string>& words) {
+        for (int i = 0; i < (int)words.size(); ++i)
+            reverse(all(words[i]));
+        sort(all(words));
+        int res = 0;
+        for (int i = 0; i < (int)words.size() - 1; ++i){
+            res += (words[i] == words[i+1].substr(0, words[i].size()))? 0 : words[i].size() + 1;
+        }
+        return res + words[(int)words.size() - 1].size() + 1;   
+    }
 };
 
 int main(){
