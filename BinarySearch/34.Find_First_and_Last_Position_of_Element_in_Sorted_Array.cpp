@@ -1,8 +1,9 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 using namespace std;
 
-class Solution {
+class Solution1 {
 public:
     vector<int> searchRange(vector<int>& nums, int tar) {
         if (nums.size() == 0) return vector<int> {-1, -1};
@@ -53,9 +54,25 @@ public:
     }
 };
 
+class Solution {
+public:
+    vector<int> searchRange(vector<int>& nums, int target) {
+        if (!nums.size()) 
+            return vector<int> {-1,-1};
+
+        int l = lower_bound(nums.begin(), nums.end(), target) - nums.begin();
+        if (l == nums.size() || nums[l] != target) return vector<int> {-1, -1};
+        int r = upper_bound(nums.begin(), nums.end(), target) - nums.begin();
+        return vector<int> {l, r - 1};
+    }
+};
+
 int main(){
     Solution s;
-    vector<int> n({2,2});
-    vector<int> t = s.searchRange(n, 3);
-    cout << t[0] << ' ' << t[1];
+    int n; cin >> n;
+    vector<int> nums(n);
+    for (int& x : nums) cin >> x;
+    int t; cin >> t;
+    vector<int> ans = s.searchRange(nums, t);
+    cout << ans[0] << ' ' << ans[1];
 }

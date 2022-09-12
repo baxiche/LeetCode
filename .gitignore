@@ -1,6 +1,13 @@
+*
+!*/
+!*.*
 .gitignore
 test.c
 test
 t.cpp
+*.log
+*.out
+*.synctex.gz
+*.aux
 23
 /RBTree
